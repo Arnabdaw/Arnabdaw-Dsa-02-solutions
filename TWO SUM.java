@@ -4,9 +4,14 @@ class Solution
     {
         int l=0;
         int r=numbers.length-1;
-        while(numbers[l]+numbers[r]!=target)
+        while(l<r)
         {
-            if(numbers[l]+numbers[r]<target)
+            int sum=numbers[l]+numbers[r];
+            if(sum==target)
+            {
+                return new int[]{l+1,r+1};
+            }
+            else if(sum<target)
             {
                 l++;
             }
@@ -14,7 +19,8 @@ class Solution
             {
                 r--;
             }
+
         }
-        return new int[]{l+1,r+1};
+        return null;
     }
 }
